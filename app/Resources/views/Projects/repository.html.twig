@@ -1,0 +1,148 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h3>{{repository.name}}</h3>
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#home">Information générales</a></li>
+        <li><a data-toggle="tab" href="#owner">Utilisateur</a></li>
+        <li><a data-toggle="tab" href="#commits">Commits</a></li>
+        <li><a data-toggle="tab" href="#branches">Branches</a></li>
+        <li><a data-toggle="tab" href="#tags">Tags</a></li>
+        <li><a data-toggle="tab" href="#watchers">Watchers</a></li>
+    </ul>
+    <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+            <ul>
+                
+                <li> <b>name</b> : {{repository.name}}</li>
+                <li> <b>language</b> : {{repository.language}}</li>
+                <li> <b>created_on</b> : {{repository.created_on}}</li>
+                <li> <b>updated_on</b> : {{repository.updated_on}}</li>
+                <li> <b>size</b> : {{repository.size}}</li>
+                <li> <b>type</b> : {{repository.type}}</li>
+                <li> <b>is_private</b> : {% if repository.is_private %} Private {% else %}
+                    Public
+                {% endif %}
+                </li>
+                <li> <b>description</b> : {{repository.description}}</li>
+                <li> <b>clone </b> 
+                        <p>https: <input type="text" value="{{ repository.links.clone[0].href}}" style="width:300px"></p>
+                        <p>ssh: <input type="text" value="{{ repository.links.clone[1].href}}" style="width:300px"></p>
+                
+                </li>
+                <li> <b>Nbr branches</b> : {{ branches.values|length }}</li>
+                <li> <b>Nbr commits</b> : {{ commits.values|length }}</li>
+                <li> <b>Nbr tags</b> : {{ tags.values|length }}</li>
+            </ul>
+        </div>
+        <div id="owner" class="tab-pane fade">
+            <h3>Utilisateurs</h3>
+            <table class="table table-hover">
+                <thead>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>UUID</th>
+                </thead>
+                <tbody>
+                    <td>{{ repository.owner.username }}</td>
+                    <td>{{ repository.owner.display_name }} </td>
+                    <td>{{ repository.owner.type }}</td>
+                    <td>{{ repository.owner.uuid }}</td>
+                </tbody>
+            </table>
+
+        </div>
+        <div id="commits" class="tab-pane fade">
+            <h3>Commits</h3>
+            <table class="table table-hover">
+                <thead>
+                <th>Author</th>
+                <th>Date</th>
+                <th>Message</th>
+                
+                </thead>
+                {%for commit in commits.values %}
+                <tbody>
+                    
+                    <td>{{ commit.author.raw }}</td>
+                    <td>{{ commit.date|date("d/m/Y H:m:s")}} </td>
+                    <td>{{ commit.message }}</td>
+                                   
+
+                
+                </tbody>
+                {% endfor %}
+            </table>
+
+        </div>
+        <div id="branches" class="tab-pane fade">
+            <h3>Branches</h3>
+            <table class="table table-hover">
+                <thead>
+                
+                <th>Name</th>
+                <th>Type</th>
+                </thead>
+                {%for branche in branches.values %}
+                <tbody>
+                
+                    <td>{{ branche.name }}</td>
+                    <td>{{ branche.type }}</td>
+                
+                </tbody>
+                {% endfor %}
+            </table>
+
+        </div>
+
+        <div id="tags" class="tab-pane fade">
+            <h3>Tags</h3>
+           <table class="table table-hover">
+                <thead>
+                <th>Username</th>
+                <th>repo_slug</th>
+                </thead>
+                {%for tag in tags.values %}
+                <tbody>
+                    
+                    <td>{{ tag.username }}</td>
+                    <td>{{ tag.repo_slug }}</td>
+               
+                </tbody> 
+                {% endfor %}
+            </table>
+        </div>
+
+        <div id="watchers" class="tab-pane fade">
+            <h3>Watchers</h3>
+            <table class="table table-hover">
+                <thead>
+                <th>Username</th>
+                <th>Full Name</th>
+                <th>Type</th>
+                </thead>
+                {%for watcher in watchers.values %}
+                <tbody>
+                    
+                    <td>{{ watcher.username }}</td>
+                    <td>{{ watcher.display_name }}</td>
+                    <td>{{ watcher.type }}</td>
+                
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div id="Branches" class="tab-pane fade">
+            <h3>Menu 2</h3>
+            <p>Some content in menu 2.</p>
+        </div>
+
+        <div id="Branches" class="tab-pane fade">
+            <h3>Menu 2</h3>
+            <p>Some content in menu 2.</p>
+        </div>
+    </div>
+
+{% endblock %}

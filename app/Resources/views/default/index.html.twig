@@ -1,0 +1,152 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+   <!--slider-->
+            <div id="main_slider">
+                <div class="camera_wrap" id="camera_wrap_1">
+                    <div data-src="{{ asset('bundles/app/img/slider/1.jpg') }}"></div>
+                    <div data-src="{{ asset('bundles/app/img/slider/2.jpg') }}"></div>
+                    <div data-src="{{ asset('bundles/app/img/slider/3.jpg') }}"></div>
+                </div><!-- #camera_wrap_1 -->
+                <div class="clear"></div>
+            </div>
+            <!--//slider-->
+            <br><br><br>
+            <!--Welcome-->
+            <div class="wrap block">
+                <div class="container welcome_block">
+                    <div class="welcome_line welcome_t"></div>
+                    Project management, as effective as it gets.<br>
+                    <span>Plan, track, and collaborate using the preferred &amp;
+                        project management application of more than a million users. </span>
+                    <div class="welcome_line welcome_b"></div>
+                </div>
+            </div>
+            <!--//Welcome-->
+            <br><br><br>
+            <!--planning-->
+            <div class="wrap planning">
+                <div class="container">
+                    <div class="row">
+                        <div class="span3">
+                            <a href="#">
+                                <span class="img_icon icon1"></span>
+                                <span class="link_title">Plan projects with ease</span>
+                                Milestones, tasklists, and tasks help you organize complex <br>
+                                projects into easily manageable units. Get more refined control<br>
+                                with subtasks, recurring tasks, and dependencies.<br>
+                            </a>
+
+                        </div>
+                        <div class="span3">
+                            <a href="#">
+                                <span class="img_icon icon2"></span>
+                                <span class="link_title">Get in-depth insights with charts and reports</span>
+                                Gantt charts provide a detailed visual on the progress<br>
+                                of your tasks in comparison to what was planned. <br>
+                                The resource allocation chart lets you know who is free,<br>
+                                who is engaged, and who is overloaded.<br>
+                            </a>
+                        </div>
+                        <div class="span3">
+                            <a href="#">
+                                <span class="img_icon icon4"></span>
+                                <span class="link_title">Collaborate seamlessly</span>
+                                Employees, clients, vendors, or consultants,<br>
+                                from near or far can work together with our collaboration tools.
+                                </div>
+                                <div class="span3">
+                                    <a href="#">
+                                        <span class="img_icon icon3"></span>
+                                        <span class="link_title">Manage your documents</span>
+                                        Make sure your team always has access to the latest version<br>
+                                        of all project documents. Work together on documents, <br>
+                                        presentations, and spreadsheets using our online document tools.<br>
+                                    </a>
+                                </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--//planning-->
+                <br><br><br>
+
+
+                <!--Latest news-->
+                <div class="wrap block">
+                    <div class="container">
+                        <div class="row news_block">
+                            <div class="span6">
+                                <h2 class="title">Statistics on our projects</h2>
+                                <p>Statistics is a branch of mathematics dealing with the collection, analysis, interpretation, presentation, and organization of data.<br>
+                                    Statistics deals with all aspects of data including the planning of data collection in terms of the design of surveys and experiments.</p>
+                            </div>
+                            <div class="span6">
+                                <h2 class="title">Latest statistics</h2>
+                                <ul id="newscarousel" class="jcarousel-skin-tango">
+                                    <li>
+                                        <div class="news_date">19 February<span>2017</span></div>
+                                        <div class="news_info">Project Management also reports on new contributors who joined the site this year, numbering 815,000 out of the 5.2 million active users. More than 2.8 million have also created their first repository among which 165,000 development packages offered by students.<a href="#">Read more...</a></div>
+                                        <div class="clear"></div>
+                                    </li>
+                                    <li>
+                                        <div class="news_date">21 april<span>2017</span></div>
+
+                                        <div class="news_info">The project manager is characterized by his understanding of the project environment, <br>his sense of work organization, his ability to manage a project team, his resourcefulness,<br> his communicative skills and his ability to take The needs and interests of stakeholders. <a href="#">Read more...</a></div>
+                                        <div class="clear"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Latest news-->
+
+                <!--latest posts-->
+                <div class="wrap block carousel_block">
+                    <div class="container">
+                        <h2 class="upper">Website builders</h2>
+                        <div class="row">
+                            <div class="span12">
+                                <ul id="mycarousel2" class="jcarousel-skin-tango">
+                                    <li>
+                                        <div class="post_carousel">
+                                            <img src="{{ asset('bundles/app/img/home_blog/dhekra.jpg') }}" alt="" />
+                                            <div class="post_meta">
+                                                Posted by <a href="#">Rezgui Dhekra</a> <a href="#">/  19 Feb  /</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="post_carousel">
+                                            <img src="{{ asset('bundles/app/img/home_blog/emeni.jpg') }}" alt="" />
+
+                                            <div class="post_meta">
+                                                Posted by <a href="#">Mansri Emeni</a> <a href="#">/  19 Feb  / </a>
+                                            </div>
+
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="post_carousel">
+                                            <img src="{{ asset('bundles/app/img/home_blog/cyrine.jpg') }}" alt="" />
+                                            <div class="post_meta">
+                                                Posted by <a href="#">Hammami Cyrine</a>  <a href="#">/  19 Feb  / </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="post_carousel">
+                                            <img src="{{ asset('bundles/app/img/home_blog/safa.jpg') }}" alt="" />
+
+                                            <div class="post_meta">
+                                                Posted by <a href="#">Safa Chébbi</a> <a href="#">  /  19 feb  /</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+{% endblock %}

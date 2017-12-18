@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <!--MAIN CONTENT AREA-->
+    <div class="wrap">
+        <div class="container" margin-left="120px">
+            <div class="row pad25">
+                <div class="span8">
+                    <form action="{{ path('new_project' )}}" method="post">
+                        <label for="">Project Name</label>
+                        <input id="" type="text" name="name" placeholder="Project Name">
+                        <label for="">Description </label>
+                        <input id="" type="text" name="description" placeholder="Description"><br>
+                        <input type="radio" name="gender" value="false"> Public
+                        <input type="radio" name="gender" value="true"> Private<br>
+                        <input type="submit" class="btn dark_btn marg20" value="Create Project">
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

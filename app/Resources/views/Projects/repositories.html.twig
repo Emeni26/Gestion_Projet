@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container inner_content">
+        <div id="options"> 
+            <ul id="filters" data-option-key="filter">
+                <li class="active"><a href="{{ path('new_project')}}" class="btn dark_btn selected" data-option-value=".new">Create New Project</a></li>
+            </ul>
+
+            <ul id="filters" class="option-set" data-option-key="filter">
+
+                {% for repo in repositories.values %}
+    
+                <li class="active"><a href="#filter" data-option-value=".{{repo.name}}" class="btn dark_btn">{{ repo.name }}</a></li> 
+                {% endfor %}
+            </ul>     
+
+
+
+            <div class="clear"></div>
+        </div>
+        <div class="row">
+            <!-- portfolio_block -->
+            <div class="projects">   
+                {% for repo in repositories.values %}
+                <div class="span4 element {{repo.name}}" data-category="{{repo.name}}">
+                    <div class="hover_img">
+                        <a href="{{ path('repository', {'slug' : repo.slug})}}"> <img src="{{repo.links.avatar.href}}" alt="" height="30" width="50" /></a>
+                    
+                        <h6><a href="{{ path('repository', {'slug' : repo.slug})}}">{{repo.name}}</a></h6>
+                        <div class="descr">{{repo.description}}</div>
+                        <div class="descr">{{repo.created_on|date("d/m/Y")}}</div>
+                    </div>                                    
+                </div>
+                {% endfor %}
+            </div>
+            <div class="clear"></div>
+        </div>   
+        <!-- //portfolio_block -->   
+    </div>
+</div>
+
+<script type="text/javascript">
+		$(document).ready(function(){	
+			//prettyPhoto
+			$("a[rel^='prettyPhoto']").prettyPhoto();
+			
+			//Image hover
+			$(".hover_img").live('mouseover',function(){
+					var info=$(this).find("img");
+					info.stop().animate({opacity:0.6},500);
+					$(".preloader").css({'background':'none'});
+				}
+			);
+			$(".hover_img").live('mouseout',function(){
+					var info=$(this).find("img");
+					info.stop().animate({opacity:1},500);
+					$(".preloader").css({'background':'none'});
+				}
+			);	
+			// Preloader
+			$(".projects .element").preloader();	
+							
+		});
+	</script>
+{% endblock %}
